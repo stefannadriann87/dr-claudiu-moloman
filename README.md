@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Dr. Claudiu Moloman — Urgențe Veterinare Non Stop Iași
 
-## Getting Started
+Landing page modern în **Next.js 16** (App Router), Tailwind CSS 4, SEO local și infrastructură GA4/GTM cu **Consent Mode v2**.
 
-First, run the development server:
+## Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Deschide [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Copiază `.env.example` în `.env.local` și setează:
 
-## Learn More
+- `NEXT_PUBLIC_SITE_URL` — URL-ul canonic de producție
+- `NEXT_PUBLIC_GA_MEASUREMENT_ID` — opțional
+- `NEXT_PUBLIC_GTM_ID` — opțional
 
-To learn more about Next.js, take a look at the following resources:
+Fără ID-uri de analytics, site-ul funcționează fără tracking (banner de consimțământ apare doar după configurare GA/GTM).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deploy
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run build
+npm run start
+```
 
-## Deploy on Vercel
+Compatibil Vercel. Setează variabilele de mediu în dashboard înainte de go-live.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Conținut
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Textele, telefonul, adresa și imaginile provin de pe site-ul existent al clientului.
