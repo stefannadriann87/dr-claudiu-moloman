@@ -15,49 +15,36 @@ const icons = [
   MessageCircleHeart,
 ] as const;
 
-const iconStyles = [
-  "bg-cyan-500 text-white",
-  "bg-emerald-500 text-white",
-  "bg-violet-600 text-white",
-  "bg-sky-600 text-white",
-  "bg-orange-500 text-white",
-] as const;
-
 export function Services() {
   return (
-    <section id="servicii" className="section-dark scroll-mt-24 py-16 md:py-20">
+    <section id="servicii" className="scroll-mt-24 bg-[#f7f3eb] py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <div className="max-w-2xl">
-          <p className="text-sm font-bold uppercase tracking-wide text-emerald-400">
-            Servicii
-          </p>
-          <h2 className="mt-2 text-3xl font-bold md:text-4xl">
-            Servicii oferite
+          <p className="eyebrow">Servicii</p>
+          <h2 className="mt-3 text-3xl font-medium text-[#1c211d] md:text-4xl">
+            Îngrijire completă, de la prevenție la urgență
           </h2>
-          <p className="mt-3 text-lg text-cyan-100">
+          <p className="mt-4 text-base leading-relaxed text-[#5c655e]">
             Consultații, prevenție și diagnostic, plus intervenții de urgență
             când fiecare minut contează.
           </p>
         </div>
 
-        <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => {
             const Icon = icons[index] ?? Stethoscope;
-            const style = iconStyles[index] ?? iconStyles[0];
             return (
               <li
                 key={service.title}
-                className="group rounded-2xl border border-white/15 bg-slate-950/50 p-5 shadow-xl transition hover:-translate-y-1 hover:border-cyan-400/50 hover:bg-slate-900/80"
+                className="rounded-[1.5rem] bg-white p-6 ring-1 ring-[#e4ddd0] transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#2f5d50]/10"
               >
-                <div
-                  className={`flex h-12 w-12 items-center justify-center rounded-xl shadow-lg ${style}`}
-                >
-                  <Icon className="h-6 w-6" aria-hidden />
-                </div>
-                <h3 className="mt-4 text-lg font-bold text-white">
+                <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#e4efe9] text-[#2f5d50]">
+                  <Icon className="h-5 w-5" aria-hidden />
+                </span>
+                <h3 className="mt-5 text-lg font-medium text-[#1c211d]">
                   {service.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-300">
+                <p className="mt-2 text-sm leading-relaxed text-[#5c655e]">
                   {service.description}
                 </p>
               </li>

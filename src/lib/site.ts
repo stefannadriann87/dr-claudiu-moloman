@@ -30,7 +30,7 @@ export const siteConfig = {
     latitude: 47.1739,
     longitude: 27.5728,
   },
-  themeColor: "#0c4a6e",
+  themeColor: "#2f5d50",
   foundingYear: 2013,
   experienceYears: 12,
   mapsQuery: "Tătărași, Vasile Lupu 106B, Iași, România",
@@ -131,5 +131,5 @@ export function getSiteUrl(): string {
   if (url) {
     return url.endsWith("/") ? url.slice(0, -1) : url;
   }
-  return "https://urgente-veterinare-non-stop-iasi.vercel.app";
+  return "https://dr-moloman.vercel.app";
 }

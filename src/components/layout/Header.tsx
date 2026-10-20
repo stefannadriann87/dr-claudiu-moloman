@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { Logo } from "@/components/Logo";
 import { PhoneLink } from "@/components/PhoneLink";
 import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -10,81 +11,43 @@ const navLinks = [
   { href: "#despre", label: "Despre" },
   { href: "#urgente", label: "Urgențe" },
   { href: "#servicii", label: "Servicii" },
-  { href: "#galerie", label: "Galerie" },
+  { href: "#galerie", label: "Cabinet" },
   { href: "#contact", label: "Contact" },
 ];
 
 export function Header() {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 48);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 border-b transition-all duration-300",
-        scrolled
-          ? "border-slate-200 bg-white shadow-lg shadow-slate-900/10"
-          : "border-white/10 bg-transparent backdrop-blur-sm",
-      )}
-    >
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 md:px-6">
-        <a href="#" className="group flex min-w-0 flex-col">
-          <span
-            className={cn(
-              "truncate text-sm font-bold tracking-tight md:text-base",
-              scrolled ? "text-slate-900" : "text-white",
-            )}
-          >
-            Dr. Claudiu Moloman
-          </span>
-          <span
-            className={cn(
-              "truncate text-xs font-semibold",
-              scrolled ? "text-cyan-700" : "text-cyan-300",
-            )}
-          >
-            Urgențe veterinare 24/7, Iași
-          </span>
+    <header className="sticky top-0 z-50 border-b border-[#e4ddd0] bg-[#f7f3eb]/90 backdrop-blur-md">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3.5 md:px-6">
+        <a href="/" className="min-w-0">
+          <Logo />
         </a>
 
         <nav
           aria-label="Navigare principală"
-          className="hidden items-center gap-6 md:flex"
+          className="hidden items-center gap-7 md:flex"
         >
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className={cn(
-                "text-sm font-bold transition",
-                scrolled
-                  ? "text-slate-700 hover:text-cyan-700"
-                  : "text-white/90 hover:text-white",
-              )}
+              className="text-sm font-medium text-[#3f463f] transition hover:text-[#2f5d50]"
             >
               {link.label}
             </a>
           ))}
           <PhoneLink
             location="header_cta"
-            className="btn-call rounded-full px-4 py-2 text-sm font-bold text-white hover:text-white"
+            className="btn-call rounded-full px-4 py-2 text-sm font-semibold hover:text-white"
             showIcon
           />
         </nav>
 
         <button
           type="button"
-          className={cn(
-            "inline-flex rounded-lg p-2 md:hidden",
-            scrolled ? "text-slate-900" : "text-white",
-          )}
+          className="inline-flex rounded-full p-2 text-[#1c211d] md:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? "Închide meniul" : "Deschide meniul"}
@@ -96,18 +59,14 @@ export function Header() {
 
       <div
         id="mobile-nav"
-        className={cn(
-          "border-t bg-white md:hidden",
-          open ? "block" : "hidden",
-          scrolled ? "border-slate-200" : "border-white/10",
-        )}
+        className={cn("border-t border-[#e4ddd0] bg-[#f7f3eb] md:hidden", open ? "block" : "hidden")}
       >
         <nav className="flex flex-col gap-1 px-4 py-3" aria-label="Mobil">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="rounded-lg px-3 py-2 text-sm font-bold text-slate-800 hover:bg-cyan-50"
+              className="rounded-xl px-3 py-2.5 text-sm font-medium text-[#1c211d] hover:bg-[#efe8da]"
               onClick={() => setOpen(false)}
             >
               {link.label}
@@ -115,7 +74,7 @@ export function Header() {
           ))}
           <PhoneLink
             location="mobile_menu"
-            className="btn-call mt-2 justify-center rounded-full px-4 py-3 font-bold text-white hover:text-white"
+            className="btn-call mt-2 justify-center rounded-full px-4 py-3 font-semibold text-white hover:text-white"
             showIcon
           >
             {siteConfig.phoneDisplay}

@@ -30,6 +30,12 @@ npm run start
 
 Compatibil Vercel. Setează variabilele de mediu în dashboard înainte de go-live.
 
+### URL scurt pe Vercel
+
+La import (sau **Settings → General → Project Name**), folosește un nume scurt, de ex. **`dr-moloman`** → site live la **`https://dr-moloman.vercel.app`**.
+
+Apoi în Vercel → **Environment Variables** setează `NEXT_PUBLIC_SITE_URL=https://dr-moloman.vercel.app` și redeploy.
+
 ## Conținut
 
 Textele, telefonul, adresa și imaginile provin de pe site-ul existent al clientului.

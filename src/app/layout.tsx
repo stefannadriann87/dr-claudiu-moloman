@@ -32,6 +32,13 @@ export const metadata: Metadata = {
   keywords: [...siteConfig.keywords],
   authors: [{ name: siteConfig.author }],
   creator: siteConfig.author,
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/icon-192.png",
+  },
   robots: {
     index: true,
     follow: true,
@@ -78,7 +85,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="ro" className={`${dmSans.variable} ${fraunces.variable} scroll-smooth`}>
-      <body className="min-h-screen bg-white font-sans text-slate-800 antialiased">
+      <body className="min-h-screen bg-[#f7f3eb] font-sans text-[#1c211d] antialiased">
         <GtmNoScript />
         {children}
         <ConsentBanner />

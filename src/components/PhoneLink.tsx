@@ -24,7 +24,7 @@ export function PhoneLink({
       href={siteConfig.phoneHref}
       aria-label={ariaLabel}
       className={cn(
-        "inline-flex items-center gap-2 font-bold text-cyan-700 transition hover:text-orange-600",
+        "inline-flex items-center gap-2 font-semibold text-[#2f5d50] transition hover:text-[#23473d]",
         className,
       )}
       onClick={() => trackClickToCall(location)}
