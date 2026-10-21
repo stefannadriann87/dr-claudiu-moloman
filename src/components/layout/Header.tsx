@@ -28,8 +28,13 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 shadow-[0_2px_16px_rgba(7,53,87,0.06)] backdrop-blur-md">
-      <div className="page-grid flex h-[82px] items-center justify-between gap-6">
-        <a href="#acasa" className="min-w-0" aria-label="Dr. Moloman - Acasă">
+      <div className="page-grid relative z-20 flex h-[72px] items-center justify-between gap-4 md:h-[82px]">
+        <a
+          href="#acasa"
+          className="min-w-0"
+          aria-label="Dr. Moloman - Acasă"
+          onClick={() => setOpen(false)}
+        >
           <Logo />
         </a>
 
@@ -55,67 +60,52 @@ export function Header() {
 
         <button
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center text-navy xl:hidden"
+          className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-navy xl:hidden"
           aria-expanded={open}
-          aria-controls="mobile-sheet"
+          aria-controls="mobile-menu"
           aria-label={open ? "Închide meniul" : "Deschide meniul"}
           onClick={() => setOpen((v) => !v)}
         >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
 
       <div
-        id="mobile-sheet"
-        aria-hidden={!open}
-        inert={!open ? true : undefined}
+        id="mobile-menu"
+        hidden={!open}
         className={cn(
-          "fixed inset-y-0 right-0 z-50 flex w-[min(360px,88vw)] flex-col bg-white px-6 py-6 xl:hidden",
-          open
-            ? "visible translate-x-0 pointer-events-auto"
-            : "invisible pointer-events-none translate-x-full",
+          "absolute inset-x-0 top-full z-10 border-t border-line bg-white shadow-[0_18px_40px_rgba(7,53,87,0.12)] xl:hidden",
+          open ? "block" : "hidden",
         )}
-        style={{
-          boxShadow: open ? "0 24px 60px rgba(14,46,39,0.18)" : "none",
-          transition: "transform 200ms cubic-bezier(0.2, 0.7, 0.3, 1)",
-        }}
       >
-        <div className="mb-8 flex items-center justify-between">
-          <p className="text-sm font-medium text-ink">Meniu</p>
-          <button
-            type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-hairline"
-            aria-label="Închide meniul"
-            onClick={() => setOpen(false)}
-          >
-            <X className="h-5 w-5" />
-          </button>
-        </div>
-        <nav className="flex flex-col gap-1" aria-label="Mobil">
+        <nav
+          aria-label="Mobil"
+          className="page-grid flex flex-col py-3 pb-5"
+        >
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="py-3 text-2xl font-bold text-navy"
+              className="border-b border-line py-3.5 text-[17px] font-bold text-navy last:border-b-0"
               onClick={() => setOpen(false)}
             >
               {link.label}
             </a>
           ))}
+          <PhoneLink
+            location="mobile_menu"
+            className="btn-primary mt-4 hover:text-white"
+            showIcon
+          >
+            {siteConfig.phoneDisplay}
+          </PhoneLink>
         </nav>
-        <PhoneLink
-          location="mobile_menu"
-          className="btn-primary mt-8 hover:text-white"
-          showIcon
-        >
-          {siteConfig.phoneDisplay}
-        </PhoneLink>
       </div>
 
       {open ? (
         <button
           type="button"
-          className="fixed inset-0 z-40 bg-navy/20 xl:hidden"
+          className="fixed inset-0 z-0 bg-navy/25 xl:hidden"
           aria-label="Închide meniul"
           onClick={() => setOpen(false)}
         />

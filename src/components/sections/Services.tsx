@@ -39,12 +39,6 @@ export function Services() {
                 <p className="mt-2 text-sm leading-relaxed text-muted">
                   {service.description}
                 </p>
-                <a
-                  href="#contact"
-                  className="mt-4 inline-flex text-[13px] font-extrabold text-teal"
-                >
-                  Află mai multe →
-                </a>
               </li>
             );
           })}
