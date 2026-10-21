@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { DM_Sans, Fraunces } from "next/font/google";
+import { Fraunces, Instrument_Sans } from "next/font/google";
 import {
   AnalyticsScripts,
   GtmNoScript,
@@ -8,15 +8,17 @@ import { ConsentBanner } from "@/components/analytics/ConsentBanner";
 import { getSiteUrl, images, siteConfig } from "@/lib/site";
 import "./globals.css";
 
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
+const instrument = Instrument_Sans({
+  variable: "--font-instrument",
   subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
   subsets: ["latin", "latin-ext"],
+  weight: ["400", "500"],
   display: "swap",
 });
 
@@ -55,10 +57,10 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [
       {
-        url: images.profile.src,
-        width: images.profile.width,
-        height: images.profile.height,
-        alt: images.profile.alt,
+        url: images.hero.src,
+        width: images.hero.width,
+        height: images.hero.height,
+        alt: images.hero.alt,
       },
     ],
   },
@@ -66,7 +68,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.title,
     description: siteConfig.description,
-    images: [images.profile.src],
+    images: [images.hero.src],
   },
   other: {
     "geo.region": "RO-IS",
@@ -84,8 +86,8 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="ro" className={`${dmSans.variable} ${fraunces.variable} scroll-smooth`}>
-      <body className="min-h-screen bg-[#f7f3eb] font-sans text-[#1c211d] antialiased">
+    <html lang="ro" className={`${instrument.variable} ${fraunces.variable}`}>
+      <body className="min-h-screen bg-paper font-sans text-ink antialiased">
         <GtmNoScript />
         {children}
         <ConsentBanner />

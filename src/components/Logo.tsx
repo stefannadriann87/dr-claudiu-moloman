@@ -5,29 +5,53 @@ type LogoProps = {
   variant?: "sage" | "cream";
 };
 
+function LogoGlyphs({ ink, accent }: { ink: string; accent: string }) {
+  return (
+    <>
+      <rect x="29.1" y="10.4" width="5.8" height="16" rx="1.3" fill={accent} />
+      <rect x="24" y="15.7" width="16" height="5.8" rx="1.3" fill={accent} />
+      <path
+        d="M27.2 35.8A9.2 10.4 0 1 0 27.2 53.2"
+        fill="none"
+        stroke={ink}
+        strokeWidth="4.4"
+        strokeLinecap="round"
+      />
+      <path
+        d="M34.4 53.4V36L43.3 49.6L52.2 36V53.4"
+        fill="none"
+        stroke={ink}
+        strokeWidth="4.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </>
+  );
+}
+
 export function LogoMark({ className, variant = "sage" }: LogoProps) {
-  const fill = variant === "cream" ? "#f7f3eb" : "#2f5d50";
-  const ink = variant === "cream" ? "#2f5d50" : "#f7f3eb";
-  const accent = "#c56a3c";
+  const fill = variant === "cream" ? "#F7F5EF" : "#0E2E27";
+  const ink = variant === "cream" ? "#0E2E27" : "#F7F5EF";
+  const accent = "#C2643E";
+  const ring = variant === "cream" ? "rgba(14,46,39,0.18)" : "rgba(247,245,239,0.28)";
 
   return (
     <svg
       viewBox="0 0 64 64"
       className={cn("h-12 w-12 shrink-0", className)}
       role="img"
-      aria-label="Logo Dr. Claudiu Moloman, cabinet veterinar"
+      aria-label="Logo Dr. Claudiu Moloman, medic veterinar"
     >
       <circle cx="32" cy="32" r="32" fill={fill} />
-      <ellipse cx="17" cy="21" rx="6.2" ry="7.6" fill={ink} transform="rotate(-24 17 21)" />
-      <ellipse cx="26" cy="14.4" rx="5.8" ry="7.2" fill={ink} transform="rotate(-7 26 14.4)" />
-      <ellipse cx="38" cy="14.4" rx="5.8" ry="7.2" fill={ink} transform="rotate(7 38 14.4)" />
-      <ellipse cx="47" cy="21" rx="6.2" ry="7.6" fill={ink} transform="rotate(24 47 21)" />
-      <path
-        fill={ink}
-        d="M32 25c-8.6 0-15.4 6.2-15.4 12.6 0 6.2 6.4 11.4 15.4 11.4s15.4-5.2 15.4-11.4C47.4 31.2 40.6 25 32 25Z"
+      <circle
+        cx="32"
+        cy="32"
+        r="28.6"
+        fill="none"
+        stroke={ring}
+        strokeWidth="1.2"
       />
-      <rect x="29.1" y="31.4" width="5.8" height="15.2" rx="1.4" fill={accent} />
-      <rect x="24.4" y="36.1" width="15.2" height="5.8" rx="1.4" fill={accent} />
+      <LogoGlyphs ink={ink} accent={accent} />
     </svg>
   );
 }
@@ -45,7 +69,7 @@ export function Logo({
           <span
             className={cn(
               "block truncate font-display text-[1.05rem] font-medium leading-tight",
-              variant === "cream" ? "text-white" : "text-[#1c211d]",
+              variant === "cream" ? "text-white" : "text-ink",
             )}
           >
             Dr. Claudiu Moloman
@@ -53,10 +77,10 @@ export function Logo({
           <span
             className={cn(
               "block truncate text-xs",
-              variant === "cream" ? "text-[#c8ddd4]" : "text-[#5c655e]",
+              variant === "cream" ? "text-white/70" : "text-ink-soft",
             )}
           >
-            Cabinet veterinar, Iași
+            Cabinet veterinar · Iași
           </span>
         </span>
       ) : null}

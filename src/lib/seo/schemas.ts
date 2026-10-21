@@ -13,8 +13,9 @@ export function businessSchema() {
     name: "Dr. Claudiu Moloman - Urgențe Veterinare Non Stop Iași",
     alternateName: siteConfig.name,
     image: [
-      images.profile.src,
-      ...images.gallery.map((item) => item.src),
+      `${siteUrl}${images.hero.src}`,
+      `${siteUrl}${images.about.src}`,
+      `${siteUrl}${images.clinic.src}`,
     ],
     url: siteUrl,
     telephone: siteConfig.phoneTel,

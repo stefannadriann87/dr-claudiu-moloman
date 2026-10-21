@@ -30,7 +30,7 @@ export const siteConfig = {
     latitude: 47.1739,
     longitude: 27.5728,
   },
-  themeColor: "#2f5d50",
+  themeColor: "#0E2E27",
   foundingYear: 2013,
   experienceYears: 12,
   mapsQuery: "Tătărași, Vasile Lupu 106B, Iași, România",
@@ -40,29 +40,36 @@ export const siteConfig = {
 } as const;
 
 export const images = {
-  profile: {
-    src: "https://i.ibb.co/FkNwZ4N8/wmremove-transformed.png",
-    alt: "Dr. Claudiu Moloman - Medic Veterinar Urgențe Non Stop Iași",
-    width: 680,
-    height: 510,
+  hero: {
+    src: "/media/doctor-moloman.jpg",
+    alt: "Dr. Claudiu Moloman, medic veterinar, în cabinetul din Iași",
+    width: 1280,
+    height: 720,
   },
-  gallery: [
-    {
-      src: "https://i.ibb.co/MWdMFrK/De-Watermark-ai-1753020209486.jpg",
-      alt: "Dr. Claudiu Moloman - Cabinet Urgențe Veterinare Iași",
-      title: "Dr. Claudiu Moloman în cabinetul veterinar din Iași",
-    },
-    {
-      src: "https://i.ibb.co/tgyRxqd/De-Watermark-ai-1753020260008.jpg",
-      alt: "Cabinet Veterinar Urgențe Non Stop Iași - Echipamente Medicale",
-      title: "Echipamente medicale moderne pentru urgențe veterinare",
-    },
-    {
-      src: "https://i.ibb.co/k6GBbYgq/De-Watermark-ai-1753020107906-cleanup.png",
-      alt: "Tratament Urgențe Veterinare Iași - Îngrijire Animale",
-      title: "Tratament profesional pentru animale de companie în Iași",
-    },
-  ],
+  about: {
+    src: "/media/doctor-cabinet.jpg",
+    alt: "Dr. Claudiu Moloman în cabinetul din Tătărași",
+    width: 1280,
+    height: 720,
+  },
+  clinic: {
+    src: "/media/clinic-room.jpg",
+    alt: "Sala de consultații a cabinetului, luminată natural",
+    width: 1600,
+    height: 1200,
+  },
+  clinicDetail: {
+    src: "/media/clinic-detail.jpg",
+    alt: "Masă de consultație cu instrumente veterinare",
+    width: 1200,
+    height: 1200,
+  },
+  emergency: {
+    src: "/media/doctor-moloman.jpg",
+    alt: "Dr. Claudiu Moloman în cabinetul de urgențe din Iași",
+    width: 1280,
+    height: 720,
+  },
 } as const;
 
 export const emergencySituations = [
@@ -75,6 +82,24 @@ export const emergencySituations = [
   "Naștere dificilă (distocie)",
 ] as const;
 
+export const emergencySteps = [
+  {
+    title: "Sunați la cabinet",
+    description:
+      "Răspund personal la telefon, la orice oră. Descrieți pe scurt ce s-a întâmplat.",
+  },
+  {
+    title: "Stabilim împreună urgența",
+    description:
+      "Vă spun dacă este nevoie să veniți imediat și ce puteți face până ajungeți.",
+  },
+  {
+    title: "Veniți la cabinet",
+    description:
+      "Vasile Lupu 106B, Tătărași. Vă aștept, inclusiv noaptea și weekend.",
+  },
+] as const;
+
 export const serviceAdvantages = [
   "Disponibilitate 24/7, inclusiv weekend și sărbători",
   "Intervenție rapidă în situații critice",
@@ -85,6 +110,10 @@ export const serviceAdvantages = [
 ] as const;
 
 export const services = [
+  {
+    title: "Urgențe veterinare 24/7",
+    description: "Intervenții rapide în situații critice, zi și noapte",
+  },
   {
     title: "Consultații generale și de specialitate",
     description:
@@ -112,17 +141,32 @@ export const faqItems = [
   {
     question: "Este cabinetul deschis non-stop?",
     answer:
-      "Da, cabinetul este disponibil 24/7, inclusiv weekend și sărbători. Vă rugăm să sunați înainte la 0749 276 692 pentru programare.",
+      "Da, cabinetul este disponibil 24/7, inclusiv weekend și sărbători. Vă rugăm să sunați înainte la 0749 276 692. În caz de urgențe, mă deplasez la cabinet la orice oră.",
   },
   {
-    question: "Ce tipuri de urgențe veterinare tratați?",
+    question: "Trebuie să fac programare pentru o consultație?",
     answer:
-      "Tratăm toate tipurile de urgențe veterinare: traumatisme, intoxicații, probleme respiratorii acute, probleme gastro-intestinale severe, convulsii, hemoragii și naștere dificilă.",
+      "Da. Cabinetul funcționează doar pe bază de programare telefonică. Sunt singurul medic din cabinet, așadar vă rog să sunați înainte de a veni, la 0749 276 692.",
   },
   {
-    question: "Unde se află cabinetul?",
+    question: "Ce urgențe veterinare tratați?",
     answer:
-      "Cabinetul se află în Iași, în zona Tătărași, pe strada Vasile Lupu 106B. Locația este centrală și ușor accesibilă.",
+      "Tratăm urgențe veterinare precum traumatisme și accidente, intoxicații, probleme respiratorii acute, probleme gastro-intestinale severe, convulsii și probleme neurologice, hemoragii și răni deschise, precum și naștere dificilă (distocie).",
+  },
+  {
+    question: "Unde se află exact cabinetul?",
+    answer:
+      "Cabinetul se află în Iași, zona Tătărași, pe strada Vasile Lupu 106B. Locația este centrală și ușor accesibilă. Vă rugăm să sunați înainte de deplasare.",
+  },
+  {
+    question: "Ce animale primiți?",
+    answer:
+      "Primesc animale de companie: câini, pisici și alți companioni. Dacă nu sunteți sigur că pot prelua cazul, sunați la 0749 276 692 înainte de a veni.",
+  },
+  {
+    question: "Pot suna doar pentru un sfat, fără să vin la cabinet?",
+    answer:
+      "Da. Ofer consultanță telefonică imediată și sfaturi pentru îngrijirea animalului. Sunați la 0749 276 692.",
   },
 ] as const;
 

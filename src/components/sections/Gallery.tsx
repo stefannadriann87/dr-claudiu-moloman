@@ -1,36 +1,41 @@
 import Image from "next/image";
 import { images } from "@/lib/site";
 
-const CABINET_PHOTO = images.gallery[0];
-
 export function Gallery() {
   return (
-    <section id="galerie" className="scroll-mt-24 bg-white py-16 md:py-24">
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 md:grid-cols-2 md:px-6">
-        <div>
-          <p className="eyebrow">Cabinet</p>
-          <h2 className="mt-3 text-3xl font-medium text-[#1c211d] md:text-4xl">
-            Cabinet veterinar Iași
-          </h2>
-          <p className="mt-4 max-w-md text-base leading-relaxed text-[#5c655e]">
-            Spațiu echipat pentru urgențe și îngrijire atentă a pacienților.
-          </p>
-        </div>
-        <figure className="mx-auto w-full max-w-sm">
-          <div className="overflow-hidden rounded-[2rem] bg-[#efe8da] p-2">
+    <section id="cabinet" className="scroll-mt-[88px] bg-paper-deep">
+      <div className="page-grid section-pad">
+        <p className="eyebrow">Cabinet</p>
+        <h2 className="mt-4 max-w-lg text-[32px] leading-[1.1] lg:text-[44px]">
+          Spațiu echipat pentru urgențe
+        </h2>
+        <p className="mt-4 max-w-lg text-ink-soft">
+          Lumină naturală, masă de consultație și instrumentar pregătit pentru
+          îngrijirea atentă a pacienților.
+        </p>
+
+        <div className="mt-12 grid gap-6 lg:grid-cols-12">
+          <figure className="overflow-hidden rounded-[12px] bg-pine-100 lg:col-span-8">
             <Image
-              src={CABINET_PHOTO.src}
-              alt={CABINET_PHOTO.alt}
-              title={CABINET_PHOTO.title}
-              width={576}
-              height={1024}
-              className="h-auto w-full rounded-[1.55rem] object-contain"
-              sizes="(max-width: 768px) 90vw, 380px"
-              loading="lazy"
+              src={images.clinic.src}
+              alt={images.clinic.alt}
+              width={images.clinic.width}
+              height={images.clinic.height}
+              className="aspect-[3/2] w-full object-cover"
+              sizes="(max-width: 1024px) 100vw, 66vw"
             />
-          </div>
-          <figcaption className="sr-only">{CABINET_PHOTO.title}</figcaption>
-        </figure>
+          </figure>
+          <figure className="overflow-hidden rounded-[12px] bg-pine-100 lg:col-span-4">
+            <Image
+              src={images.clinicDetail.src}
+              alt={images.clinicDetail.alt}
+              width={images.clinicDetail.width}
+              height={images.clinicDetail.height}
+              className="aspect-square w-full object-cover"
+              sizes="(max-width: 1024px) 100vw, 33vw"
+            />
+          </figure>
+        </div>
       </div>
     </section>
   );
