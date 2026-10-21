@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Instrument_Sans } from "next/font/google";
+import { DM_Sans, Manrope } from "next/font/google";
 import {
   AnalyticsScripts,
   GtmNoScript,
@@ -8,17 +8,17 @@ import { ConsentBanner } from "@/components/analytics/ConsentBanner";
 import { getSiteUrl, images, siteConfig } from "@/lib/site";
 import "./globals.css";
 
-const instrument = Instrument_Sans({
-  variable: "--font-instrument",
+const dmSans = DM_Sans({
+  variable: "--font-dm",
   subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin", "latin-ext"],
-  weight: ["400", "500"],
+  weight: ["500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -37,9 +37,10 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "48x48" },
-      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-32.png", type: "image/png", sizes: "32x32" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
     ],
-    apple: "/icon-192.png",
+    apple: [{ url: "/icon-192.png", sizes: "192x192", type: "image/png" }],
   },
   robots: {
     index: true,
@@ -86,8 +87,8 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="ro" className={`${instrument.variable} ${fraunces.variable}`}>
-      <body className="min-h-screen bg-paper font-sans text-ink antialiased">
+    <html lang="ro" className={`${dmSans.variable} ${manrope.variable}`}>
+      <body className="min-h-screen bg-white font-sans text-navy antialiased">
         <GtmNoScript />
         {children}
         <ConsentBanner />

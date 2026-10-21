@@ -1,7 +1,9 @@
 import {
+  emergencyCopy,
   faqItems,
   getSiteUrl,
   images,
+  services,
   siteConfig,
 } from "@/lib/site";
 
@@ -17,6 +19,7 @@ export function businessSchema() {
       `${siteUrl}${images.about.src}`,
       `${siteUrl}${images.clinic.src}`,
     ],
+    logo: `${siteUrl}/logo.png`,
     url: siteUrl,
     telephone: siteConfig.phoneTel,
     priceRange: "$$",
@@ -73,20 +76,18 @@ export function businessSchema() {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Urgențe veterinare non stop",
-            description:
-              "Intervenții rapide în situații critice pentru animalele de companie, disponibile 24/7",
+            name: emergencyCopy.title,
+            description: emergencyCopy.intro,
           },
         },
-        {
+        ...services.map((service) => ({
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Consultații veterinare",
-            description:
-              "Consultații generale și de specialitate pentru animale de companie",
+            name: service.title,
+            description: service.description,
           },
-        },
+        })),
       ],
     },
     employee: {

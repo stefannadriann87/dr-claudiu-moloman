@@ -6,11 +6,11 @@ import { ChevronDown } from "lucide-react";
 
 export function Faq() {
   return (
-    <section id="intrebari" className="scroll-mt-[88px]">
-      <div className="page-grid section-pad grid gap-12 lg:grid-cols-12 lg:gap-10">
+    <section id="intrebari" className="scroll-mt-24 py-16 md:py-24">
+      <div className="page-grid grid gap-12 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-5">
           <p className="eyebrow">Întrebări</p>
-          <h2 className="mt-4 text-[32px] leading-[1.1] lg:text-[44px]">
+          <h2 className="mt-3 text-[clamp(30px,3.4vw,44px)] leading-[1.15]">
             Răspunsuri
             <br />
             înainte de a suna.

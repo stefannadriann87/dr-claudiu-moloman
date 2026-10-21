@@ -6,94 +6,81 @@ export function Contact() {
   const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(siteConfig.mapsQuery)}`;
 
   return (
-    <section id="contact" className="scroll-mt-[88px]">
-      <div className="page-grid section-pad">
-        <p className="eyebrow">Contact</p>
-        <h2 className="mt-4 text-[32px] leading-[1.1] lg:text-[44px]">
-          Sunați înainte.
-          <br />
-          Eu răspund.
-        </h2>
-        <p className="mt-5 max-w-[46ch] text-ink-soft">
-          Pentru informații sau urgențe veterinare, sunați direct. Disponibil
-          24/7, în Iași.
-        </p>
+    <section id="contact" className="scroll-mt-24 bg-gradient-to-b from-[#f5fafb] to-white py-16 md:py-24">
+      <div className="page-grid grid items-stretch gap-8 lg:grid-cols-2 lg:gap-11">
+        <div
+          id="cabinet"
+          className="scroll-mt-28 rounded-[22px] bg-[#f3f9fa] p-7 md:p-9"
+        >
+          <p className="eyebrow">Contact și cabinet</p>
+          <h2 className="mt-3 text-[clamp(30px,3.4vw,42px)] leading-[1.15]">
+            Hai să vorbim despre companionul tău.
+          </h2>
+          <p className="mt-4 text-muted">
+            Contactează-ne telefonic înainte de vizită.
+          </p>
 
-        <div className="mt-12 grid items-start gap-12 lg:grid-cols-12 lg:gap-10">
-          <div className="lg:col-span-5">
-            <dl className="border-t border-hairline">
-              <div className="border-b border-hairline py-6">
-                <dt className="flex items-center gap-2 text-[12px] font-medium uppercase tracking-[0.14em] text-ink-soft">
-                  <Phone className="h-3.5 w-3.5" aria-hidden />
-                  Telefon
-                </dt>
-                <dd className="mt-2">
-                  <PhoneLink
-                    location="contact_section"
-                    className="text-[22px] text-ink hover:text-pine-700"
-                  />
-                  <p className="mt-1 text-sm text-ink-soft">
-                    Urgențe non-stop, inclusiv weekend
-                  </p>
-                </dd>
-              </div>
-
-              <div className="border-b border-hairline py-6">
-                <dt className="flex items-center gap-2 text-[12px] font-medium uppercase tracking-[0.14em] text-ink-soft">
-                  <MapPin className="h-3.5 w-3.5" aria-hidden />
-                  Adresă
-                </dt>
-                <dd className="mt-2 text-ink">
-                  <p>Vasile Lupu 106B</p>
-                  <p className="text-sm text-ink-soft">
-                    Tătărași, {siteConfig.address.locality}
-                  </p>
-                </dd>
-              </div>
-
-              <div className="border-b border-hairline py-6">
-                <dt className="flex items-center gap-2 text-[12px] font-medium uppercase tracking-[0.14em] text-ink-soft">
-                  <Clock className="h-3.5 w-3.5" aria-hidden />
-                  Program
-                </dt>
-                <dd className="mt-2 text-ink">
-                  <p>Non-stop, 24/7</p>
-                  <p className="text-sm text-ink-soft">
-                    doar cu programare telefonică
-                  </p>
-                </dd>
-              </div>
-            </dl>
-
-            <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-7 space-y-6">
+            <div>
+              <p className="flex items-center gap-2 font-bold">
+                <Phone className="h-4 w-4 text-teal" aria-hidden />
+                Telefon
+              </p>
               <PhoneLink
-                location="contact_cta"
-                className="btn-emergency rounded-full hover:text-white"
-                showIcon
-              >
-                Sună acum
-              </PhoneLink>
-              <a
-                href={mapsLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-ghost rounded-full"
-              >
-                <MapPin className="h-4 w-4" aria-hidden />
-                Deschide în Google Maps
-              </a>
+                location="contact_section"
+                className="mt-1 text-lg text-muted hover:text-teal"
+              />
+            </div>
+            <div>
+              <p className="flex items-center gap-2 font-bold">
+                <MapPin className="h-4 w-4 text-teal" aria-hidden />
+                Locație
+              </p>
+              <p className="mt-1 text-muted">
+                {siteConfig.address.street}, {siteConfig.address.locality},{" "}
+                {siteConfig.address.country}
+              </p>
+            </div>
+            <div>
+              <p className="flex items-center gap-2 font-bold">
+                <Clock className="h-4 w-4 text-teal" aria-hidden />
+                Vizite
+              </p>
+              <p className="mt-1 text-muted">
+                Non-stop, 24/7, doar după contact telefonic. Pentru urgențe,
+                sună înainte.
+              </p>
             </div>
           </div>
 
-          <div className="overflow-hidden rounded-[16px] border border-hairline lg:col-span-7">
-            <iframe
-              title="Locație cabinet Dr. Claudiu Moloman, Iași"
-              src={siteConfig.mapsEmbedUrl}
-              className="h-[360px] w-full min-h-[320px] lg:h-full lg:min-h-[480px]"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
+          <div className="mt-8 flex flex-wrap gap-3">
+            <PhoneLink
+              location="contact_cta"
+              className="btn-primary hover:text-white"
+              showIcon
+            >
+              Sună pentru informații
+            </PhoneLink>
+            <a
+              href={mapsLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline"
+            >
+              <MapPin className="h-4 w-4" aria-hidden />
+              Deschide în Google Maps
+            </a>
           </div>
+        </div>
+
+        <div className="min-h-[350px] overflow-hidden rounded-[22px] border border-line">
+          <iframe
+            title="Locație cabinet Dr. Claudiu Moloman, Iași"
+            src={siteConfig.mapsEmbedUrl}
+            className="h-full min-h-[350px] w-full lg:min-h-[480px]"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
         </div>
       </div>
     </section>

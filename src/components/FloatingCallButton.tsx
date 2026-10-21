@@ -3,14 +3,14 @@ import { siteConfig } from "@/lib/site";
 
 export function FloatingCallButton() {
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-hairline bg-paper p-3 md:hidden">
+    <div className="fixed inset-x-4 bottom-4 z-40 md:hidden">
       <PhoneLink
         location="floating_mobile"
-        className="btn-emergency w-full hover:text-white"
+        className="btn-primary w-full shadow-[0_10px_35px_rgba(8,54,87,0.33)] hover:text-white"
         showIcon
-        aria-label={`Sună urgențe veterinare ${siteConfig.phoneDisplay}`}
+        aria-label={`Sună acum: ${siteConfig.phoneDisplay}`}
       >
-        Sună {siteConfig.phoneDisplay}
+        Sună acum: {siteConfig.phoneDisplay}
       </PhoneLink>
     </div>
   );

@@ -6,7 +6,6 @@ import { About } from "@/components/sections/About";
 import { Contact } from "@/components/sections/Contact";
 import { Emergency } from "@/components/sections/Emergency";
 import { Faq } from "@/components/sections/Faq";
-import { Gallery } from "@/components/sections/Gallery";
 import { Hero } from "@/components/sections/Hero";
 import { Services } from "@/components/sections/Services";
 import {
@@ -25,10 +24,9 @@ export default function HomePage() {
       <Header />
       <main className="pb-20 md:pb-0">
         <Hero />
+        <Services />
         <About />
         <Emergency />
-        <Services />
-        <Gallery />
         <Faq />
         <Contact />
       </main>

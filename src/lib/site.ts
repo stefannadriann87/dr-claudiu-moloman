@@ -13,7 +13,7 @@ export const siteConfig = {
     "Dr. Claudiu Moloman",
   ],
   author: "Dr. Claudiu Moloman",
-  slogan: "Grijă, Compasiune, Profesionalism",
+  slogan: "Grijă pentru fiecare viață.",
   tagline: "Asistență veterinară de urgență 24/7 în Iași",
   phoneDisplay: "0749 276 692",
   phoneTel: "+40749276692",
@@ -30,7 +30,7 @@ export const siteConfig = {
     latitude: 47.1739,
     longitude: 27.5728,
   },
-  themeColor: "#0E2E27",
+  themeColor: "#073557",
   foundingYear: 2013,
   experienceYears: 12,
   mapsQuery: "Tătărași, Vasile Lupu 106B, Iași, România",
@@ -41,35 +41,42 @@ export const siteConfig = {
 
 export const images = {
   hero: {
-    src: "/media/doctor-moloman.jpg",
+    src: "/media/desktop-molomon.png",
     alt: "Dr. Claudiu Moloman, medic veterinar, în cabinetul din Iași",
-    width: 1280,
-    height: 720,
+    width: 1599,
+    height: 789,
+  },
+  heroMobile: {
+    src: "/media/mobile-molomon.png",
+    alt: "Dr. Claudiu Moloman, medic veterinar, în cabinetul din Iași",
+    width: 334,
+    height: 596,
   },
   about: {
-    src: "/media/doctor-cabinet.jpg",
-    alt: "Dr. Claudiu Moloman în cabinetul din Tătărași",
-    width: 1280,
-    height: 720,
+    src: "/media/about-doctor.png",
+    alt: "Dr. Claudiu Moloman consultând o pisică în cabinetul din Iași",
+    width: 1672,
+    height: 941,
   },
   clinic: {
-    src: "/media/clinic-room.jpg",
-    alt: "Sala de consultații a cabinetului, luminată natural",
-    width: 1600,
-    height: 1200,
-  },
-  clinicDetail: {
-    src: "/media/clinic-detail.jpg",
-    alt: "Masă de consultație cu instrumente veterinare",
-    width: 1200,
-    height: 1200,
-  },
-  emergency: {
-    src: "/media/doctor-moloman.jpg",
-    alt: "Dr. Claudiu Moloman în cabinetul de urgențe din Iași",
+    src: "/media/doctor-cabinet.jpg",
+    alt: "Dr. Claudiu Moloman în cabinetul din Tătărași, Iași",
     width: 1280,
     height: 720,
   },
+  emergency: {
+    src: "/media/emergency-real.jpg",
+    alt: "Dr. Claudiu Moloman în timpul unei consultații",
+    width: 576,
+    height: 1024,
+  },
+} as const;
+
+export const emergencyCopy = {
+  title: "Urgențe Veterinare Non Stop în Iași",
+  intro:
+    "Oferim servicii complete de urgență veterinară 24/7 pentru animalele de companie din Iași și împrejurimi. Suntem pregătiți să intervenim rapid în situații critice, asigurând îngrijirea medicală de care animalul tău are nevoie în momentele dificile.",
+  cta: "În caz de urgență veterinară în Iași, nu ezitați să sunați imediat la 0749 276 692",
 } as const;
 
 export const emergencySituations = [
@@ -110,10 +117,6 @@ export const serviceAdvantages = [
 ] as const;
 
 export const services = [
-  {
-    title: "Urgențe veterinare 24/7",
-    description: "Intervenții rapide în situații critice, zi și noapte",
-  },
   {
     title: "Consultații generale și de specialitate",
     description:

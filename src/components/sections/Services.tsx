@@ -1,36 +1,53 @@
+import {
+  HeartHandshake,
+  Microscope,
+  ShieldCheck,
+  Stethoscope,
+  Syringe,
+} from "lucide-react";
 import { services } from "@/lib/site";
-import { ChevronRight } from "lucide-react";
+
+const icons = [Stethoscope, Syringe, ShieldCheck, Microscope, HeartHandshake];
 
 export function Services() {
   return (
-    <section id="servicii" className="scroll-mt-[88px]">
-      <div className="page-grid section-pad">
-        <p className="eyebrow">Servicii</p>
-        <h2 className="mt-4 max-w-xl text-[32px] leading-[1.1] lg:text-[44px]">
-          Îngrijire completă, de la prevenție la urgență
-        </h2>
+    <section id="servicii" className="scroll-mt-24 bg-gradient-to-b from-[#f5fafb] to-white py-16 md:py-24">
+      <div className="page-grid">
+        <div className="mx-auto max-w-[660px] text-center">
+          <p className="eyebrow">Servicii</p>
+          <h2 className="mt-2 text-[clamp(29px,3vw,43px)] leading-tight">
+            Servicii oferite
+          </h2>
+          <p className="mt-3 text-muted">
+            O gamă completă de servicii pentru sănătatea și bunăstarea
+            companionului tău.
+          </p>
+        </div>
 
-        <ul className="mt-12 border-t border-hairline">
-          {services.map((service, index) => (
-            <li key={service.title} className="border-b border-hairline">
-              <a
-                href="#contact"
-                className="group grid grid-cols-[48px_1fr_auto] items-center gap-4 py-6 transition-[background-color,padding] duration-200 [transition-timing-function:cubic-bezier(0.2,0.7,0.3,1)] hover:bg-paper-deep hover:pl-1 md:grid-cols-[64px_1fr_1fr_auto]"
+        <ul className="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((service, index) => {
+            const Icon = icons[index] ?? Stethoscope;
+            return (
+              <li
+                key={service.title}
+                className="rounded-2xl border border-[#eaf0f2] bg-white p-6 shadow-[0_9px_32px_rgba(7,53,87,0.05)] transition duration-200 hover:-translate-y-1 hover:shadow-[0_16px_44px_rgba(9,54,82,0.09)]"
               >
-                <span className="text-[12px] font-medium tracking-[0.14em] text-clay">
-                  {String(index + 1).padStart(2, "0")}
+                <span className="grid h-[58px] w-[58px] place-items-center rounded-full bg-[#e3f8f7] text-teal">
+                  <Icon className="h-6 w-6" aria-hidden />
                 </span>
-                <h3 className="text-[22px] leading-[1.3]">{service.title}</h3>
-                <p className="col-span-3 mt-1 text-sm text-ink-soft md:col-span-1 md:mt-0">
+                <h3 className="mt-4 text-[17px] leading-snug">{service.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted">
                   {service.description}
                 </p>
-                <ChevronRight
-                  className="hidden h-4 w-4 text-ink-soft md:block"
-                  aria-hidden
-                />
-              </a>
-            </li>
-          ))}
+                <a
+                  href="#contact"
+                  className="mt-4 inline-flex text-[13px] font-extrabold text-teal"
+                >
+                  Află mai multe →
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </section>
